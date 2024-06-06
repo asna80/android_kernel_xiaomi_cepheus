@@ -7,7 +7,7 @@ ANYKERNEL3_DIR=$PWD/AnyKernel3/
 FINAL_KERNEL_ZIP=InfiniR_cepheus_A12-A13_v1.14.zip
 
 # paths
-TC="/home/raystef66/kernel/prebuilts"
+TC="$PWD"
 
 PATH=${TC}/clang-r416183b1/bin:${TC}/aarch64/bin:${TC}/arm/bin:$PATH
 
