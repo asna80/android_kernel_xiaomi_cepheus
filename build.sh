@@ -39,6 +39,7 @@ make ARCH=arm64 \
 echo -e "$yellow**** Verify Image.gz-dtb ****$nocol"
 ls $PWD/out/arch/arm64/boot/Image.gz-dtb
 mkdir $PWD/kernel_out
+cp cepheus_anykernel.sh $ANYKERNEL3_DIR/anykernel.sh
 
 echo -e "$yellow**** Verifying AnyKernel3 Directory ****$nocol"
 ls $ANYKERNEL3_DIR
