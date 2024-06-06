@@ -28,7 +28,7 @@ jobs:
 
       # 新增步骤：拉取子模块【Kernelsu  Anykernel】
       - name: Update Submodules
-        run: git submodule update --init --recursive
+        run: git submodule update --init --recursive  --remote
 
       # 下载指定版本的 clang 17.0.2 和 GCC 4.9
       - name: Download clang
