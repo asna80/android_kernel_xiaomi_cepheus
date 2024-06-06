@@ -22,6 +22,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          # 为了避免莫名其妙的问题，禁用深度克隆，拉取完整代码
+          fetch-depth: 0
 
       # 新增步骤：拉取子模块【Kernelsu  Anykernel】
       - name: Update Submodules
@@ -34,7 +37,6 @@ jobs:
           git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git aarch64
           git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git arm 
           tar -xvf clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
-          export PATH="$PWD/clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04/bin:$PATH"
         
       - name: Build
         run: |
