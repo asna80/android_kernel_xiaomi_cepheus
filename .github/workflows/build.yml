@@ -23,9 +23,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-            # 新增步骤：拉取子模块
+      # 新增步骤：拉取子模块【Kernelsu  Anykernel】
       - name: Update Submodules
         run: git submodule update --init --recursive
+
+      # 下载指定版本的 clang 17.0.2 和 GCC 4.9
+      - name: Download clang
+        run: |
+          wget https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.2/clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
+          git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git aarch64
+          git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git arm 
+          tar -xvf clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
+          export PATH="$PWD/clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04/bin:$PATH"
         
       - name: Build
         run: |
