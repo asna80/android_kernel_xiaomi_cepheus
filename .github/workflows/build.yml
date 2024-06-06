@@ -39,19 +39,19 @@ jobs:
           tar -xvf clang+llvm-17.0.2-x86_64-linux-gnu-ubuntu-22.04.tar.xz
           
       # 下载Nethunter内核和设备包
-      - name: Download Nethunter
-        run: |
-          git clone git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project.git
-          git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel.git
+      #- name: Download Nethunter
+       # run: |
+        #  git clone git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project.git
+         # git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel.git
           
       - name: Build
         run: |
           bash ./build.sh
 
-      - name: Nethunter_Build
-        run: |
-          cp mi9_nethunter_buildconfig kali-nethunter-kernel/config
-          bash ./kali-nethunter-kernel/build.sh
+      #- name: Nethunter_Build
+       # run: |
+        #  cp mi9_nethunter_buildconfig kali-nethunter-kernel/config
+         # bash ./kali-nethunter-kernel/build.sh
 
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
