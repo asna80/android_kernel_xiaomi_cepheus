@@ -22,9 +22,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        with:
-          submodules: recursive 
-          
+
+            # 新增步骤：拉取子模块
+      - name: Update Submodules
+        run: git submodule update --init --recursive
+        
       - name: Build
         run: |
           bash ./build.sh
